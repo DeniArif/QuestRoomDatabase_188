@@ -6,7 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.praktikum7.data.entity.Mahasiswa
 import com.example.praktikum7.repository.RepositoryMhs
+import com.example.praktikum7.ui.theme.navigation.DestinasiUpdate
 import kotlinx.coroutines.flow.filterNot
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -19,7 +21,7 @@ class UpdateMhsViewModel(
     var updateUiState by mutableStateOf(MhsUIState())
         private set
 
-    private val _nim: String = checkNotNull(savedStateHandle[DestinasiEdit.NIM])
+    private val _nim: String = checkNotNull(savedStateHandle[DestinasiUpdate.NIM])
 
 
     init {
@@ -77,4 +79,11 @@ class UpdateMhsViewModel(
             )
         }
     }
+    fun resetSnackBarMessage() {
+        updateUiState = updateUiState.copy(snackBarMessage = null)
+    }
 }
+
+fun Mahasiswa.toUIStateMhs() : MhsUIState = MhsUIState(
+    mahasiswaEvent = this.toDetailUiEvent(),
+)
