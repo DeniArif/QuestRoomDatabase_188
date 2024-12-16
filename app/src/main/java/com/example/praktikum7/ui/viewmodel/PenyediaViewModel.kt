@@ -1,4 +1,4 @@
-package com.example.praktikum7.ui.theme.viewmodel // Pastikan hanya satu package yang digunakan
+package com.example.praktikum7.ui.viewmodel // Pastikan hanya satu package yang digunakan
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras

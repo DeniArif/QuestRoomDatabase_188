@@ -1,4 +1,4 @@
-package com.example.praktikum7.ui.theme.navigation
+package com.example.praktikum7.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -7,8 +7,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.praktikum7.ui.theme.view.mahasiswa.DestinasiInsert
-import com.example.praktikum7.ui.theme.view.mahasiswa.InsertMhsView
+import com.example.praktikum7.ui.view.mahasiswa.DestinasiInsert
+import com.example.praktikum7.ui.view.mahasiswa.InsertMhsView
 
 @Composable
 fun PengelolaHalaman(

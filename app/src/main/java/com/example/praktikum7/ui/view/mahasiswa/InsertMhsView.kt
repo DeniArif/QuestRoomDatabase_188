@@ -1,4 +1,4 @@
-package com.example.praktikum7.ui.theme.view.mahasiswa
+package com.example.praktikum7.ui.view.mahasiswa
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,13 +27,13 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.room.Insert
 import com.example.praktikum7.data.entity.Mahasiswa
-import com.example.praktikum7.ui.theme.costumwidget.TopAppBar
-import com.example.praktikum7.ui.theme.navigation.AlamatNavigasi
-import com.example.praktikum7.ui.theme.viewmodel.FormErrorState
-import com.example.praktikum7.ui.theme.viewmodel.MahasiswaEvent
-import com.example.praktikum7.ui.theme.viewmodel.MahasiswaViewModel
-import com.example.praktikum7.ui.theme.viewmodel.MhsUIState
-import com.example.praktikum7.ui.theme.viewmodel.PenyediaViewModel
+import com.example.praktikum7.ui.costumwidget.TopAppBar
+import com.example.praktikum7.ui.navigation.AlamatNavigasi
+import com.example.praktikum7.ui.viewmodel.FormErrorState
+import com.example.praktikum7.ui.viewmodel.MahasiswaEvent
+import com.example.praktikum7.ui.viewmodel.MahasiswaViewModel
+import com.example.praktikum7.ui.viewmodel.MhsUIState
+import com.example.praktikum7.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 

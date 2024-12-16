@@ -1,4 +1,4 @@
-package com.example.praktikum7.ui.theme.costumwidget
+package com.example.praktikum7.ui.costumwidget
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row

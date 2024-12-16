@@ -1,4 +1,4 @@
-package com.example.praktikum7.ui.theme.viewmodel
+package com.example.praktikum7.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,7 +17,7 @@ class HomeMhsViewModel (
     private val repositoryMhs: RepositoryMhs
 ) : ViewModel() {
 
-    val homeUIState: StateFlow<HomeUiState> = repositoryMhs.getAllMhs()
+    val homeUiState: StateFlow<HomeUiState> = repositoryMhs.getAllMhs()
         .filterNotNull()
         .map {
             HomeUiState (

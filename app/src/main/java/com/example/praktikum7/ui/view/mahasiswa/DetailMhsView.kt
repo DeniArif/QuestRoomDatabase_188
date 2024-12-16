@@ -1,4 +1,4 @@
-package com.example.praktikum7.ui.theme.view.mahasiswa
+package com.example.praktikum7.ui.view.mahasiswa
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,17 +8,25 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Snackbar
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ComposableTargetMarker
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -28,12 +36,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.praktikum7.ui.theme.costumwidget.TopAppBar
-import com.example.praktikum7.ui.theme.viewmodel.DetailMhsViewModel
-import com.example.praktikum7.ui.theme.viewmodel.DetailUiState
-import com.example.praktikum7.ui.theme.viewmodel.PenyediaViewModel
-import com.example.praktikum7.ui.theme.viewmodel.toMahasiswaEntity
+import com.example.praktikum7.ui.costumwidget.TopAppBar
+import com.example.praktikum7.ui.viewmodel.DetailMhsViewModel
+import com.example.praktikum7.ui.viewmodel.DetailUiState
+import com.example.praktikum7.ui.viewmodel.PenyediaViewModel
+import com.example.praktikum7.ui.viewmodel.UpdateMhsViewModel
+import com.example.praktikum7.ui.viewmodel.toMahasiswaEntity
 
 @Composable
 fun DetailMhsView(
@@ -55,7 +65,7 @@ fun DetailMhsView(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    onEditClick(viewModel.detailUiState.detailUiEvent.nim)
+                    onEditClick(viewModel.detailUiState.value.detailUiEvent.nim)
                 },
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(16.dp)
@@ -118,18 +128,18 @@ fun BodyDetailMhs (
                 }
                 if (deleteConfirmationRequired) {
                     DeleteConfirmationDialog (
-                        onDeleteConfrim = {
+                        onDeleteConfirm = {
                             deleteConfirmationRequired = false
                             onDeleteClick()
                         },
-                        onDeleteClick = { deleteConfirmationRequired = false },
+                        onDeleteCancel = { deleteConfirmationRequired = false },
                         modifier = Modifier.padding(8.dp)
                     )
                 }
             }
         }
 
-        detailUiState.isUiEventNotEmpty -> {
+        detailUiState.isUiEventEmpty -> {
             Box(
                 modifier = modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center
@@ -164,6 +174,28 @@ fun ComponentDetailMhs(
         )
     }
 }
+@Composable
+private fun DeleteConfirmationDialog(
+  onDeleteConfirm: () -> Unit, onDeleteCancel: () -> Unit, modifier: Modifier = Modifier
+){
+    AlertDialog(onDismissRequest = { /* Do nothing */ },
+        title = { Text("Delete Data")},
+        text = { Text("Apakah anda yakin ingin menghapus data?")},
+        dismissButton = {
+            TextButton(onClick = onDeleteCancel) {
+                Text(text = "Cencel")
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDeleteConfirm) {
+                Text(text = "Yes")
+            }
+        }
+    )
+}
+
+
+
 
 
 

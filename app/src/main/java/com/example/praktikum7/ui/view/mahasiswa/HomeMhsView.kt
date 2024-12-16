@@ -1,4 +1,4 @@
-package com.example.praktikum7.ui.theme.view.mahasiswa
+package com.example.praktikum7.ui.view.mahasiswa
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,6 +25,8 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -34,15 +36,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.praktikum7.data.entity.Mahasiswa
-import com.example.praktikum7.ui.theme.costumwidget.TopAppBar
-import com.example.praktikum7.ui.theme.viewmodel.HomeUiState
-import com.example.praktikum7.ui.theme.viewmodel.MahasiswaViewModel
-import com.example.praktikum7.ui.theme.viewmodel.PenyediaViewModel
+import com.example.praktikum7.ui.costumwidget.TopAppBar
+import com.example.praktikum7.ui.viewmodel.HomeMhsViewModel
+import com.example.praktikum7.ui.viewmodel.HomeUiState
+import com.example.praktikum7.ui.viewmodel.MahasiswaViewModel
+import com.example.praktikum7.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 @Composable
 fun HomeMhsView(
-    viewModel: MahasiswaViewModel = viewModel(factory = PenyediaViewModel.Factory),
+    viewModel: HomeMhsViewModel = viewModel(factory = PenyediaViewModel.Factory),
     onAddMhs: () -> Unit = { },
     onDetailClick: (String) -> Unit = { },
     modifier: Modifier = Modifier
