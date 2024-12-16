@@ -1,5 +1,6 @@
 package com.example.praktikum7.ui.view.mahasiswa
 
+import Alamatnavigasi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,7 +30,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.room.Insert
 import com.example.praktikum7.data.entity.Mahasiswa
 import com.example.praktikum7.ui.costumwidget.TopAppBar
-import com.example.praktikum7.ui.navigation.AlamatNavigasi
 import com.example.praktikum7.ui.viewmodel.FormErrorState
 import com.example.praktikum7.ui.viewmodel.MahasiswaEvent
 import com.example.praktikum7.ui.viewmodel.MahasiswaViewModel
@@ -38,7 +38,7 @@ import com.example.praktikum7.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 
-object DestinasiInsert : AlamatNavigasi {
+object DestinasiInsert : Alamatnavigasi {
     override  val  route : String = "Insert_mhs"
 }
 

@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.praktikum7.data.entity.Mahasiswa
 import com.example.praktikum7.repository.RepositoryMhs
-import com.example.praktikum7.ui.navigation.DestinasiDetail
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
